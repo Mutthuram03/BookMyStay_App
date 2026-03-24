@@ -1,0 +1,18 @@
+import java.util.HashMap;
+import java.util.Map;
+
+class RoomInventory {
+
+    private Map<String, Integer> availability;
+
+    public RoomInventory() {
+        availability = new HashMap<>();
+        availability.put("Single", 5);
+        availability.put("Double", 3);
+        availability.put("Suite", 2);
+    }
+
+    public Map<String, Integer> getRoomAvailability() {
+        return availability; // read-only usage
+    }
+}
