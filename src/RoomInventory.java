@@ -7,16 +7,16 @@ public class RoomInventory {
 
     public RoomInventory() {
         rooms = new HashMap<>();
-        rooms.put("Single", 2);
-        rooms.put("Double", 2);
-        rooms.put("Suite", 1);
+        rooms.put("Single", 5);
+        rooms.put("Double", 3);
+        rooms.put("Suite", 2);
     }
 
-    public boolean isRoomAvailable(String roomType) {
-        return rooms.containsKey(roomType) && rooms.get(roomType) > 0;
+    public void releaseRoom(String roomType) {
+        rooms.put(roomType, rooms.get(roomType) + 1);
     }
 
-    public void bookRoom(String roomType) {
-        rooms.put(roomType, rooms.get(roomType) - 1);
+    public int getAvailableRooms(String roomType) {
+        return rooms.get(roomType);
     }
 }
