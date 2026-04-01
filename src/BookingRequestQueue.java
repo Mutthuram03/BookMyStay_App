@@ -1,6 +1,18 @@
+import java.util.*;
+
 public class BookingRequestQueue {
 
-    public void addRequest(String guestName, String roomType) {
-        System.out.println("Booking confirmed for " + guestName + " (" + roomType + ")");
+    private Queue<Reservation> queue = new LinkedList<>();
+
+    public synchronized void addRequest(Reservation r) {
+        queue.add(r);
+    }
+
+    public synchronized Reservation getRequest() {
+        return queue.poll();
+    }
+
+    public synchronized boolean isEmpty() {
+        return queue.isEmpty();
     }
 }
